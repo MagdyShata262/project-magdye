@@ -8,9 +8,6 @@
     "lib": ["es2020", "dom"],
     "baseUrl": ".",
     "paths": {
-      "@project-magdye/data-access": ["shared/data-access/src/index.ts"],
-      "@project-magdye/feature-auth": ["feature-auth/src/index.ts"],
-      "@project-magdye/feature-carts": ["feature-carts/src/index.ts"],
       "@project-magdye/feature-products": ["feature-products/src/index.ts"],
       "@project-magdye/feature-users": ["feature-users/src/index.ts"],
       "@project-magdye/state": ["shared/state/src/index.ts"],
