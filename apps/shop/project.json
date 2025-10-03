@@ -1,31 +1,30 @@
 {
-  "name": "project-magdye",
-  "$schema": "node_modules/nx/schemas/project-schema.json",
-  "includedScripts": [],
+  "name": "shop",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "application",
   "prefix": "app",
-  "sourceRoot": "./src",
-  "tags": [],
+  "sourceRoot": "apps/shop/src",
+  "tags": ["scope:shop type:app"],
   "targets": {
     "build": {
       "executor": "@angular/build:application",
       "outputs": ["{options.outputPath}"],
       "options": {
-        "outputPath": "dist/project-magdye",
-        "browser": "./src/main.ts",
+        "outputPath": "dist/apps/shop",
+        "browser": "apps/shop/src/main.ts",
         "polyfills": ["zone.js"],
-        "tsConfig": "tsconfig.app.json",
+        "tsConfig": "apps/shop/tsconfig.app.json",
         "inlineStyleLanguage": "scss",
         "assets": [
           {
             "glob": "**/*",
-            "input": "public"
+            "input": "apps/shop/public"
           }
         ],
-        "styles": ["./src/styles.scss"],
-        "server": "src/main.server.ts",
+        "styles": ["apps/shop/src/styles.scss"],
+        "server": "apps/shop/src/main.server.ts",
         "ssr": {
-          "entry": "src/server.ts"
+          "entry": "apps/shop/src/server.ts"
         },
         "outputMode": "server"
       },
@@ -58,10 +57,10 @@
       "executor": "@angular/build:dev-server",
       "configurations": {
         "production": {
-          "buildTarget": "project-magdye:build:production"
+          "buildTarget": "shop:build:production"
         },
         "development": {
-          "buildTarget": "project-magdye:build:development"
+          "buildTarget": "shop:build:development"
         }
       },
       "defaultConfiguration": "development"
@@ -69,30 +68,27 @@
     "extract-i18n": {
       "executor": "@angular/build:extract-i18n",
       "options": {
-        "buildTarget": "project-magdye:build"
+        "buildTarget": "shop:build"
       }
     },
     "lint": {
-      "executor": "@nx/eslint:lint",
-      "options": {
-        "lintFilePatterns": ["./src"]
-      }
+      "executor": "@nx/eslint:lint"
     },
     "test": {
       "executor": "@nx/jest:jest",
-      "outputs": ["{workspaceRoot}/coverage/{projectName}"],
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
       "options": {
-        "jestConfig": "jest.config.app.ts",
-        "tsConfig": "tsconfig.spec.json"
+        "jestConfig": "apps/shop/jest.config.ts",
+        "tsConfig": "apps/shop/tsconfig.spec.json"
       }
     },
     "serve-static": {
       "continuous": true,
       "executor": "@nx/web:file-server",
       "options": {
-        "buildTarget": "project-magdye:build",
+        "buildTarget": "shop:build",
         "port": 4200,
-        "staticFilePath": "dist/project-magdye/browser",
+        "staticFilePath": "dist/apps/shop/browser",
         "spa": true
       }
     }
