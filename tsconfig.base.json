@@ -8,7 +8,9 @@
     "lib": ["es2020", "dom"],
     "baseUrl": ".",
     "paths": {
-      "@project-magdye/ui": ["libs/ui/src/index.ts"]
+      "@project-magdye/feature-products": ["feature-products/src/index.ts"],
+      "@project-magdye/ui": ["libs/ui/src/index.ts"],
+      "@project-magdye/ui-kit": ["ui/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
